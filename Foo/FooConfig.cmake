@@ -21,6 +21,7 @@ find_package_handle_standard_args(Foo
     Foo_INCLUDE_DIR
 )
 
+list(APPEND CMAKE_PREFIX_PATH ${CMAKE_CURRENT_LIST_DIR}/dependencies/variant/build/usr/local)
 find_dependency(eggs.variant REQUIRED)
 
 get_target_property(eggs_variant_INCLUDE_DIR
