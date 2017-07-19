@@ -1,7 +1,7 @@
 #include "foo/foo.hpp"
 #include <limits>
 
-std::variant<int, std::string> add(int x, int y)
+eggs::variant<int, std::string> add(int x, int y)
 {
     int result = x + y;
     if ((x > 0 || y > 0) && result < 0)

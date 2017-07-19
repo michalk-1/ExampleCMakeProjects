@@ -1,11 +1,9 @@
-set(target Foo)
+find_package(eggs.variant REQUIRED)
 
-add_library(${target}
-    foo.cpp
-)
+add_library(Foo foo.cpp)
 
-set_target_properties(${target}
+set_target_properties(Foo
   PROPERTIES
     INCLUDE_DIRECTORIES "${PROJECT_SOURCE_DIR}/source/libraries"
-    COMPILE_FEATURES "${CMAKE_CXX17_COMPILE_FEATURES}"
+    COMPILE_FEATURES "${CMAKE_CXX14_COMPILE_FEATURES}"
 )
