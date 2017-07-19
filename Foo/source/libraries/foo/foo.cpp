@@ -1,5 +1,6 @@
 #include "foo/foo.hpp"
 #include <limits>
+namespace foo {
 
 eggs::variant<int, std::string> add(int x, int y)
 {
@@ -9,3 +10,5 @@ eggs::variant<int, std::string> add(int x, int y)
     else
         return result;
 }
+
+} // namespace foo
