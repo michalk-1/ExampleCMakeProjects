@@ -2,9 +2,9 @@
 set -o errexit
 
 __DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-pushd ${__DIR}/../dependencies/variant
+pushd ${__DIR}/..
 mkdir -p build
 pushd build
 cmake ..
 make -j5 -l10
-make install DESTDIR=.
+./applications/Bar $@
