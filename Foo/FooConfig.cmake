@@ -1,19 +1,22 @@
 
 include(CMakeFindDependencyMacro)
+include(FindPackageHandleStandardArgs)
 
-find_path(Foo_INCLUDE_DIR
+# ============================== FooConfig.cmake ==============================
+
+find_path(
+  Foo_INCLUDE_DIR
   foo/foo.hpp
   HINTS ${CMAKE_CURRENT_LIST_DIR}/source/libraries
 )
 
-find_library(Foo_LIBRARY
+find_library(
+  Foo_LIBRARY
   Foo
   HINTS ${CMAKE_CURRENT_LIST_DIR}/build/libraries
 )
 
 mark_as_advanced(Foo_INCLUDE_DIR Foo_LIBRARY)
-
-include(FindPackageHandleStandardArgs)
 
 find_package_handle_standard_args(Foo
   REQUIRED_VARS
@@ -21,11 +24,17 @@ find_package_handle_standard_args(Foo
     Foo_INCLUDE_DIR
 )
 
-list(APPEND CMAKE_PREFIX_PATH ${CMAKE_CURRENT_LIST_DIR}/dependencies/variant/build/usr/local)
+list(
+  APPEND CMAKE_PREFIX_PATH
+  ${CMAKE_CURRENT_LIST_DIR}/dependencies/variant/build/usr/local
+)
+
 find_dependency(eggs.variant REQUIRED)
 
-get_target_property(eggs_variant_INCLUDE_DIR
-  Eggs::Variant INTERFACE_INCLUDE_DIRECTORIES
+get_target_property(
+  eggs_variant_INCLUDE_DIR
+  Eggs::Variant
+  INTERFACE_INCLUDE_DIRECTORIES
 )
 
 if(Foo_FOUND AND NOT TARGET Foo)
@@ -34,6 +43,7 @@ if(Foo_FOUND AND NOT TARGET Foo)
     PROPERTIES
       IMPORTED_LINK_INTERFACE_LANGUAGES "CXX"
       IMPORTED_LOCATION "${Foo_LIBRARY}"
-      INTERFACE_INCLUDE_DIRECTORIES "${Foo_INCLUDE_DIR};${eggs_variant_INCLUDE_DIR}"
+      INTERFACE_INCLUDE_DIRECTORIES
+        "${Foo_INCLUDE_DIR};${eggs_variant_INCLUDE_DIR}"
   )
 endif()
