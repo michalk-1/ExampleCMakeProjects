@@ -6,7 +6,9 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/libraries)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/libraries)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/applications)
 
-set(CMAKE_PREFIX_PATH
-  ${PROJECT_SOURCE_DIR}/dependencies/variant/build/usr/local)
+list(
+  APPEND CMAKE_PREFIX_PATH
+  ${PROJECT_SOURCE_DIR}/dependencies/variant/result
+)
 
 add_subdirectory(source/libraries/foo)

@@ -1,2 +1,7 @@
 build/
+result/
 *.so
+FooConfig.cmake
+FooConfigVersion.cmake
+FooTargets-noconfig.cmake
+FooTargets.cmake
