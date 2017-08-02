@@ -14,7 +14,7 @@ include(FindPackageHandleStandardArgs)
 
 list(
   APPEND CMAKE_PREFIX_PATH
-  ${CMAKE_CURRENT_LIST_DIR}/../dependencies/variant/result
+  ${CMAKE_CURRENT_LIST_DIR}/../../../dependencies/variant/result
 )
 
 find_dependency(eggs.variant REQUIRED)
